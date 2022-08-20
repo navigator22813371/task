@@ -1,0 +1,17 @@
+image: docker:latest
+
+services:
+  - docker:dind  
+
+stages:
+  - build
+ # - deploy
+ # - buildProd
+ # - deployProd
+
+build:
+  stage: build
+  tags: [master]
+  script:
+   - docker-compose build
+   - docker-compose up -d 
